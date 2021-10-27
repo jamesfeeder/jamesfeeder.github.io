@@ -1,0 +1,19 @@
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+h1 {
+  font-size: 2.4em;
+  margin: 0;
+}
+
+.hello {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
