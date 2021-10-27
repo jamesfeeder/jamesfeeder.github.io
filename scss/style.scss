@@ -24,3 +24,10 @@ h1 {
     font-size: 3vw;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: whitesmoke;
+    background-color: black;
+  }
+}
