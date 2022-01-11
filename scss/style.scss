@@ -1,13 +1,49 @@
+@import '_colors';
+
+@mixin buttonStyle ($textColor: $sunglow, $bgColor: $pumpkin) {
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  color: lighten($textColor, 25%);
+  background-color: $bgColor;
+  padding: 6px 16px 8px 16px;
+  margin: 8px;
+  outline: 2px solid transparent;
+  border-radius: 48px;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    color: $bgColor;
+    background-color: lighten($textColor, 25%);
+    outline: 2px solid rgba($color: $bgColor, $alpha: 0.5);
+  }
+}
 
 body {
   padding: 0px;
   margin: 0px;
-  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-color: $charcoal;
 }
 
 h1 {
-  font-size: 6vw;
+  font-size: 32px;
   margin: 0;
+  color: $olivine
+}
+
+a {
+  @include buttonStyle;
+}
+
+#github {
+  @include buttonStyle($olivine, $polished_pine)
+}
+
+.button-bar  {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .hello {
@@ -21,13 +57,17 @@ h1 {
 
 @media only screen and (min-width: 768px) {
   h1 {
-    font-size: 3vw;
+    font-size: 48px;
+  }
+
+  .button-bar {
+    flex-direction: row;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: whitesmoke;
-    background-color: black;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   body {
+//     color: whitesmoke;
+//     background-color: black;
+//   }
+// }
