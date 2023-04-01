@@ -1,7 +1,8 @@
 <script lang="ts">
   import "overlayscrollbars/overlayscrollbars.css";
 
-  import { afterUpdate } from "svelte";
+  import { onMount } from "svelte";
+  import { scrollRef } from "./utils/stores";
   import Router from "svelte-spa-router";
   import { OverlayScrollbarsComponent } from "overlayscrollbars-svelte";
   import Cursor from "./lib/Cursor.svelte";
@@ -12,8 +13,12 @@
 
   let cursor;
 
-  afterUpdate(() => {
-    cursor.updateIntractableElements();
+  onMount(() => {
+    scrollRef.set(
+      document.getElementsByClassName(
+        "os-viewport os-viewport-scrollbar-hidden"
+      )[0]
+    );
   });
 
   const routes = {
@@ -35,7 +40,7 @@
 
 <OverlayScrollbarsComponent
   style="height: 100dvh; width: 100dvw"
-  element="span"
+  element="div"
   options={{ scrollbars: { autoHide: "scroll" } }}
 >
   <Cursor bind:this={cursor} />
@@ -43,7 +48,10 @@
   <div class="content">
     <Router
       {routes}
-      on:routeLoaded={async () => {
+      on:routeLoading={() => {
+        cursor.updateIntractableElements();
+      }}
+      on:routeLoaded={() => {
         cursor.updateIntractableElements();
       }}
     />

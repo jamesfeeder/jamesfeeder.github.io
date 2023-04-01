@@ -1,6 +1,18 @@
 <script lang="ts">
   import { fly, blur } from "svelte/transition";
   import { quartInOut } from "svelte/easing";
+  import { scrollRef } from "../utils/stores";
+  import { onDestroy } from "svelte";
+
+  let scrollRefValue: Element;
+
+  scrollRef.subscribe((value) => {
+    scrollRefValue = value;
+  });
+
+  onDestroy(() => {
+    scrollRefValue.scrollTop = 0;
+  });
 </script>
 
 <main
@@ -151,10 +163,10 @@
       margin-top: 88px;
       display: grid;
       grid-template-columns: 3fr 1fr;
-      gap: 16px;
+      gap: 24px;
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.6rem;
         margin-top: 0;
         margin-bottom: 8px;
       }
@@ -175,8 +187,9 @@
       .contact {
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: start;
         align-items: end;
+        margin-top: 8px;
 
         a {
           padding: 4px;

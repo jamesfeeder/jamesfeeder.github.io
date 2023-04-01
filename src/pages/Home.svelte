@@ -2,6 +2,18 @@
   import { link } from "svelte-spa-router";
   import { fly, blur } from "svelte/transition";
   import { quartInOut } from "svelte/easing";
+  import { scrollRef } from "../utils/stores";
+  import { onDestroy } from "svelte";
+
+  let scrollRefValue: Element;
+
+  scrollRef.subscribe((value) => {
+    scrollRefValue = value;
+  });
+
+  onDestroy(() => {
+    scrollRefValue.scrollTop = 0;
+  });
 </script>
 
 <main
@@ -36,7 +48,7 @@
       justify-content: center;
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.6rem;
         margin-top: 0;
         margin-bottom: 8px;
       }
