@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { spring } from "svelte/motion";
+  import checkMobile from "../utils/check_mobile";
   import { getScreenSize } from "../utils/screen_size";
   export let cursorColor = "royalblue"; // #ff3e00
 
+  $: isMobile = checkMobile();
   $: isLocked = false;
   $: isFullScreen = false;
   $: srcSize = getScreenSize();
@@ -391,7 +393,6 @@
   }
 
   export function updateIntractableElements() {
-    resetCursor();
     intractableElements.forEach((item) => {
       item.removeEventListener("mouseover", () => {
         handleMouseOver(item);
@@ -406,6 +407,7 @@
         handleMouseLeave();
       });
     });
+    resetCursor();
     intractableElements = document.querySelectorAll("a, button");
     intractableElements.forEach((item) => {
       item.addEventListener("mouseover", () => {
@@ -513,70 +515,72 @@
   });
 </script>
 
-<div class:disable-pointer={isFullScreen}>
-  <svg>
-    <rect
-      class="outside"
-      fill={cursorColor}
-      fill-opacity={$fillOpacityOutside}
-      stroke={"#ffffff"}
-      stroke-width={"2px"}
-      stroke-opacity={$strokeOpacityOutside}
-      x={$coordsOutside.x - $sizeOutside.width / 2}
-      y={$coordsOutside.y - $sizeOutside.height / 2}
-      rx={$borderRadiusOutside}
-      ry={$borderRadiusOutside}
-      width={$sizeOutside.width}
-      height={$sizeOutside.height}
-    />
-    <rect
-      class="Inside"
-      fill={cursorColor}
-      fill-opacity={$fillOpacityInside}
-      stroke={isLocked ? cursorColor : "transparent"}
-      stroke-width={isLocked ? "2px" : "0"}
-      stroke-opacity={$strokeOpacityInside}
-      x={$coordsInside.x - $sizeInside.width / 2}
-      y={$coordsInside.y - $sizeInside.height / 2}
-      rx={$borderRadiusInside}
-      ry={$borderRadiusInside}
-      width={$sizeInside.width}
-      height={$sizeInside.height}
-    />
-  </svg>
-</div>
-<div class="invert">
-  <svg>
-    <rect
-      class="outside"
-      fill={"#ffffff"}
-      fill-opacity={isFullScreen ? $fillOpacityOutsideInvert : 0}
-      stroke={isFullScreen ? "#ffffff" : "transparent"}
-      stroke-width={"2px"}
-      stroke-opacity={isFullScreen && $strokeOpacityOutsideInvert}
-      x={$coordsOutsideInvert.x - $sizeOutsideInvert.width / 2}
-      y={$coordsOutsideInvert.y - $sizeOutsideInvert.height / 2}
-      rx={$borderRadiusOutsideInvert}
-      ry={$borderRadiusOutsideInvert}
-      width={$sizeOutsideInvert.width}
-      height={$sizeOutsideInvert.height}
-    />
-    <rect
-      class="inside"
-      fill={"#ffffff"}
-      fill-opacity={isFullScreen ? $fillOpacityInsideInvert : 0}
-      stroke={isLocked && isFullScreen ? "#ffffff" : "transparent"}
-      stroke-width={isLocked ? "2px" : "0"}
-      stroke-opacity={isFullScreen && $strokeOpacityInsideInvert}
-      x={$coordsInsideInvert.x - $sizeInsideInvert.width / 2}
-      y={$coordsInsideInvert.y - $sizeInsideInvert.height / 2}
-      rx={$borderRadiusInsideInvert}
-      ry={$borderRadiusInsideInvert}
-      width={$sizeInsideInvert.width}
-      height={$sizeInsideInvert.height}
-    />
-  </svg>
-</div>
+{#if !isMobile}
+  <div class:disable-pointer={isFullScreen}>
+    <svg>
+      <rect
+        class="outside"
+        fill={cursorColor}
+        fill-opacity={$fillOpacityOutside}
+        stroke={"#ffffff"}
+        stroke-width={"2px"}
+        stroke-opacity={$strokeOpacityOutside}
+        x={$coordsOutside.x - $sizeOutside.width / 2}
+        y={$coordsOutside.y - $sizeOutside.height / 2}
+        rx={$borderRadiusOutside}
+        ry={$borderRadiusOutside}
+        width={$sizeOutside.width}
+        height={$sizeOutside.height}
+      />
+      <rect
+        class="Inside"
+        fill={cursorColor}
+        fill-opacity={$fillOpacityInside}
+        stroke={isLocked ? cursorColor : "transparent"}
+        stroke-width={isLocked ? "2px" : "0"}
+        stroke-opacity={$strokeOpacityInside}
+        x={$coordsInside.x - $sizeInside.width / 2}
+        y={$coordsInside.y - $sizeInside.height / 2}
+        rx={$borderRadiusInside}
+        ry={$borderRadiusInside}
+        width={$sizeInside.width}
+        height={$sizeInside.height}
+      />
+    </svg>
+  </div>
+  <div class="invert">
+    <svg>
+      <rect
+        class="outside"
+        fill={"#ffffff"}
+        fill-opacity={isFullScreen ? $fillOpacityOutsideInvert : 0}
+        stroke={isFullScreen ? "#ffffff" : "transparent"}
+        stroke-width={"2px"}
+        stroke-opacity={isFullScreen && $strokeOpacityOutsideInvert}
+        x={$coordsOutsideInvert.x - $sizeOutsideInvert.width / 2}
+        y={$coordsOutsideInvert.y - $sizeOutsideInvert.height / 2}
+        rx={$borderRadiusOutsideInvert}
+        ry={$borderRadiusOutsideInvert}
+        width={$sizeOutsideInvert.width}
+        height={$sizeOutsideInvert.height}
+      />
+      <rect
+        class="inside"
+        fill={"#ffffff"}
+        fill-opacity={isFullScreen ? $fillOpacityInsideInvert : 0}
+        stroke={isLocked && isFullScreen ? "#ffffff" : "transparent"}
+        stroke-width={isLocked ? "2px" : "0"}
+        stroke-opacity={isFullScreen && $strokeOpacityInsideInvert}
+        x={$coordsInsideInvert.x - $sizeInsideInvert.width / 2}
+        y={$coordsInsideInvert.y - $sizeInsideInvert.height / 2}
+        rx={$borderRadiusInsideInvert}
+        ry={$borderRadiusInsideInvert}
+        width={$sizeInsideInvert.width}
+        height={$sizeInsideInvert.height}
+      />
+    </svg>
+  </div>
+{/if}
 
 <style>
   div {
