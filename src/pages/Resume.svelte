@@ -13,13 +13,15 @@
   onDestroy(() => {
     scrollRefValue.scrollTop = 0;
   });
+
+  //in:blur={{ duration: 800 }} out:blur={{ duration: 240 }}
 </script>
 
 <main
-  in:fly={{ y: -120, duration: 480, easing: quartInOut }}
-  out:fly={{ y: -120, duration: 240, easing: quartInOut }}
+  in:fly={{ y: 120, duration: 480, easing: quartInOut }}
+  out:fly={{ x: 120, duration: 240, easing: quartInOut }}
 >
-  <header in:blur={{ duration: 800 }} out:blur={{ duration: 240 }}>
+  <header in:blur={{ duration: 600 }} out:blur={{ duration: 200 }}>
     <div>
       <h1>Jetsadakorn Maliwan</h1>
       <div class="subtitle">
@@ -63,13 +65,13 @@
       >
     </div>
   </header>
-  <section class="exp" in:blur={{ duration: 800 }} out:blur={{ duration: 240 }}>
+  <section class="exp" in:blur={{ duration: 600 }} out:blur={{ duration: 200 }}>
     <h2>Experience</h2>
 
     <div class="timeline-item">
       <p class="time">2023</p>
       <h4>
-        Speaker in Design Research Day Bangkok Design Week 2023 @ TCDC Bangkok
+        Speaker in Design Research Day - Bangkok Design Week 2023 @ TCDC Bangkok
       </h4>
       <p>
         Journey of the Waste Town game project. <br />
@@ -150,6 +152,23 @@
         Prince of Songkla University International College
       </p>
     </div>
+
+    <h2>Education</h2>
+
+    <div class="timeline-item">
+      <p class="time">2018-2022</p>
+      <h4>
+        International College <br />
+        Creative Media Digital Technology
+      </h4>
+      <p>Prince of Songkla University, Hatyai Campus</p>
+    </div>
+
+    <div class="timeline-item">
+      <p class="time">2012-2017</p>
+      <h4>Sci-Math Ability Program</h4>
+      <p>Hatyaiwittayalai School, Songkhla</p>
+    </div>
   </section>
 </main>
 
@@ -202,7 +221,7 @@
     }
 
     h2 {
-      margin-top: 16px;
+      margin-top: 24px;
       margin-bottom: 8px;
     }
 
@@ -218,6 +237,7 @@
         padding: 4px 8px;
         border-radius: 48px;
         font-size: 0.9rem;
+        font-weight: 600;
       }
     }
 

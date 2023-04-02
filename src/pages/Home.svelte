@@ -17,10 +17,10 @@
 </script>
 
 <main
-  in:fly={{ y: -120, duration: 480, easing: quartInOut }}
+  in:fly={{ x: -120, duration: 480, easing: quartInOut }}
   out:fly={{ y: -120, duration: 240, easing: quartInOut }}
 >
-  <header in:blur={{ duration: 800 }} out:blur={{ duration: 240 }}>
+  <header in:blur={{ duration: 600 }} out:blur={{ duration: 200 }}>
     <h1>Jetsadakorn Maliwan</h1>
     <div class="subtitle">
       <h4>Software Developer /</h4>
