@@ -50,11 +50,12 @@
       a {
         padding: 4px 8px;
         margin-left: -8px; // 8px
+        font-weight: 600;
       }
     }
   }
 
   :global(a.active) {
-    font-weight: 600;
+    font-weight: 800;
   }
 </style>
