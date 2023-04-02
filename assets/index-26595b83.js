@@ -31,7 +31,7 @@
         <p class="svelte-1d5sko5">Figma</p> 
         <p class="svelte-1d5sko5">UX/UI Design</p></section></div> 
     <div class="contact svelte-1d5sko5"><a href="mailto:jetsadakorn.maliwan@gmail.com" target="_blank" class="svelte-1d5sko5">jetsadakorn.maliwan@gmail.com</a> 
-      <a href="tel:+66986707180" target="_blank" class="svelte-1d5sko5">(+66)986707180</a> 
+      
       <a href="https://github.com/jamesfeeder" target="_blank" class="svelte-1d5sko5">github.com/jamesfeeder</a></div>`,r=Qt(),c=it("section"),c.innerHTML=`<h2 class="svelte-1d5sko5">Experience</h2> 
 
     <div class="timeline-item svelte-1d5sko5"><p class="time svelte-1d5sko5">2023</p> 
