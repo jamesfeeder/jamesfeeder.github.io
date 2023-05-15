@@ -59,7 +59,7 @@
       <a href="mailto:jetsadakorn.maliwan@gmail.com" target="_blank"
         >jetsadakorn.maliwan@gmail.com</a
       >
-      <a href="tel:+66986707180" target="_blank">(+66)986707180</a>
+      <!-- <a href="tel:+66986707180" target="_blank">(+66)986707180</a> -->
       <a href="https://github.com/jamesfeeder" target="_blank"
         >github.com/jamesfeeder</a
       >
