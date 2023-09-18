@@ -7,6 +7,7 @@
 		'CSS',
 		'SCSS',
 		'Tailwind CSS',
+		'Mantine',
 		'TypeScript',
 		'JavaScript',
 		'Dart',
@@ -64,7 +65,7 @@
 				'Develop online multi-player serious game for Faculty of Medicine, Prince of Songkla University.',
 			works: [
 				'Game Designer',
-				'Game Programer',
+				'Game Programmer',
 				'UX/UI Designer (Prototype Version)',
 				'UI Animator'
 			],
@@ -77,7 +78,7 @@
 			time: '2022',
 			description:
 				'2D Game for raising social responsibility about waste management reference environment in Thailand. Collaborate with Prakakit Ananlertsakul',
-			works: ['Game Designer', 'Game Level Designer', 'Game Programer', 'UI Animator'],
+			works: ['Game Designer', 'Game Level Designer', 'Game Programmer', 'UI Animator'],
 			techs: ['Unity', 'C#', 'URP', 'Light2D', 'Shader Graph']
 		},
 		{
@@ -138,13 +139,13 @@
 	];
 </script>
 
-<main class="mx-auto max-w-3xl p-4 sm:p-6 pt-20 sm:pt-20">
+<main class="mx-auto max-w-4xl p-4 sm:p-6 pt-20 sm:pt-20">
 	<header class="flex flex-col justify-between gap-4 sm:flex-row">
 		<div>
 			<h1 class="text-3xl font-semibold text-slate-800">Jetsadakorn Maliwan</h1>
 			<div class="flex flex-wrap items-center gap-1.5 pt-4">
-				<p class="font-semibold text-slate-500">Software Developer /</p>
-				<p class="font-semibold text-slate-500">Front-End Web Developer</p>
+				<p class="font-light text-slate-500">Software Developer /</p>
+				<p class="font-light text-slate-500">Front-End Web Developer</p>
 			</div>
 		</div>
 		<div class="flex flex-col items-start sm:items-end">
