@@ -69,7 +69,7 @@
 				'UX/UI Designer (Prototype Version)',
 				'UI Animator'
 			],
-			techs: ['Unity', 'C#', 'Proton PUN']
+			techs: ['Unity', 'C#', 'Photon PUN']
 		},
 		{
 			title: 'Game Developer',
