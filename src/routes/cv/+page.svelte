@@ -41,7 +41,7 @@
 			time: '2020 - Present',
 			description: "Develop and Maintain Banno's Diary Line Sticker in-house tools and website.",
 			works: [
-				"Banno's Diary Web Application",
+				"<a href='https://sticker.bannodiary.com' target='_blank' class='text-blue-600 hover:underline'>Banno's Diary Web Application</a>",
 				"Banno's Diary Web Content Management System",
 				"Banno's Diary Sticker Renderer"
 			],
@@ -66,7 +66,7 @@
 			works: [
 				'Game Designer',
 				'Game Programmer',
-				'UX/UI Designer (Prototype Version)',
+				'UX/UI Designer (Playable Prototype Version)',
 				'UI Animator'
 			],
 			techs: ['Unity', 'C#', 'Photon PUN']
@@ -139,7 +139,7 @@
 	];
 </script>
 
-<main class="mx-auto max-w-4xl p-4 sm:p-6 pt-20 sm:pt-20">
+<main class="mx-auto max-w-4xl p-4 pt-20 sm:p-6 sm:pt-20">
 	<header class="flex flex-col justify-between gap-4 sm:flex-row">
 		<div>
 			<h1 class="text-3xl font-semibold text-slate-800">Jetsadakorn Maliwan</h1>
@@ -169,7 +169,7 @@
 			{#if exp.projectName}
 				<p class="text-base text-slate-600">Project: {exp.projectName}</p>
 			{/if}
-			<div class="flex items-center gap-2">
+			<div class="flex items-center gap-2 py-1">
 				<p class="text-lg font-semibold text-slate-800">{@html exp.client}</p>
 				<p
 					class="flex-none rounded-md bg-blue-600 px-1 py-0.5 text-center text-sm font-semibold text-white"
@@ -188,9 +188,9 @@
 			{#if exp.works}
 				<div class="mb-2">
 					<p class="flex items-center gap-1 pb-1 font-semibold">Works / Position</p>
-					<ul class="list-inside list-disc">
+					<ul role="list" class="list-inside list-disc marker:mr-2">
 						{#each exp.works as work}
-							<li>{work}</li>
+							<li>{@html work}</li>
 						{/each}
 					</ul>
 				</div>
@@ -223,7 +223,7 @@
 					{exp.time}
 				</p>
 			</div>
-			<h3 class="text-lg font-semibold text-slate-800">{@html exp.school}</h3>
+			<h3 class="pt-1 text-lg font-semibold text-slate-800">{@html exp.school}</h3>
 			{#if eduExp.length - 1 > index}
 				<div class="h-4" />
 			{/if}
