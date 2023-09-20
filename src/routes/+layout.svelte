@@ -1,8 +1,8 @@
 <script>
+	import { onMount } from 'svelte';
 	import { fade, fly, blur } from 'svelte/transition';
 	import NavItem from '../lib/NavItem.svelte';
 	import NavItemTab from '../lib/NavItemTab.svelte';
-	import Anchor from '$lib/Anchor.svelte';
 
 	import '../app.css';
 
@@ -12,6 +12,12 @@
 	import { targetUrlStore } from '$lib/stores';
 
 	export let data;
+
+	let scrollbarWidth = 0;
+
+	onMount(() => {
+		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+	});
 
 	/**
 	 * Clamp number between two values with the following line.
@@ -45,14 +51,17 @@
 {#if data.pathname !== '/'}
 	<nav
 		transition:fly={{ y: -60, delay: 240, opacity: 1 }}
-		class="fixed z-50 w-full border-b border-slate-600 border-opacity-20 bg-slate-50 shadow-sm"
+		class="fixed left-0 top-0 z-50 border-b border-slate-600 border-opacity-20 bg-slate-50 shadow-sm"
+		style={`width: calc(100vw - ${scrollbarWidth}px)`}
 	>
-		<div class="mx-auto flex h-14 max-w-4xl items-center justify-between gap-4 px-4 sm:px-6">
+		<div
+			class="mx-auto flex h-14 max-w-4xl items-center justify-between gap-4 pl-1 pr-3 sm:pl-4 sm:pr-6"
+		>
 			<div transition:fade={{ duration: 120 }}><NavItem link="/"><ArrowLeft /></NavItem></div>
-			<div class="flex items-center gap-0 px-4 sm:px-6">
+			<!-- <div class="flex items-center gap-0">
 				<NavItemTab link="/achievement"><Trophy /></NavItemTab>
 				<NavItemTab link="/cv"><ReadCvLogo /></NavItemTab>
-			</div>
+			</div> -->
 		</div>
 	</nav>
 {/if}
@@ -73,12 +82,10 @@
 				<p class="flex items-center justify-center text-sm">
 					Developed with <img class=" h-5 w-5 px-1" src={svelteIcon} alt="svelte logo" /> and ❤️
 				</p>
-				<Anchor
-					additionalClass="text-xs border-b"
-					label="Source Code"
-					link="https://github.com/jamesfeeder/jamesfeeder.github.io"
-					openNewTab
-				/>
+				<a
+					class="text-xs text-blue-600 hover:underline hover:underline-offset-2"
+					href="https://github.com/jamesfeeder/jamesfeeder.github.io">Source Code</a
+				>
 			</footer>
 		</div>
 	</div>
