@@ -1,5 +1,6 @@
 <script>
 	import { ArrowSquareOut, ArrowRight } from 'phosphor-svelte';
+	import { targetUrlStore } from './stores';
 
 	/**  @type {string} Anchor Label*/
 	export let label;
@@ -16,6 +17,9 @@
 <a
 	href={link}
 	target={openNewTab ? '_blank' : undefined}
+	on:click={() => {
+		targetUrlStore.update((url) => (url = link));
+	}}
 	class={`group relative flex items-center gap-1 border-b-2 border-transparent font-medium text-blue-600 transition hover:z-10 hover:border-current hover:bg-slate-50   ${additionalClass}`}
 	>{label}
 
