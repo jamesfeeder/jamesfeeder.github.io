@@ -44,7 +44,7 @@
 			transitionDirection = clamp(end - start);
 		}
 
-		console.log({ startUrl: data.pathname, endUrl: targetUrl, direction: transitionDirection });
+		// console.log({ startUrl: data.pathname, endUrl: targetUrl, direction: transitionDirection });
 	});
 </script>
 
@@ -67,27 +67,27 @@
 {/if}
 
 {#key data.pathname}
-	<div in:blur={{ duration: 240, delay: 240, amount: 4 }} out:blur={{ duration: 120, amount: 8 }}>
-		<div
-			in:fly={{
-				x: 88 * transitionDirection,
-				duration: 160 * Math.abs(transitionDirection),
-				delay: 240 * Math.abs(transitionDirection)
-			}}
-			out:fly={{ x: 88 * -transitionDirection, duration: transitionDirection === 0 ? 120 : 240 }}
-			class={data.pathname !== '/' ? 'pt-14' : ''}
-		>
-			<slot />
-			<footer class="mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6">
-				<p class="flex items-center justify-center text-sm">
-					Developed with <img class=" h-5 w-5 px-1" src={svelteIcon} alt="svelte logo" /> and ❤️
-				</p>
-				<a
-					class="text-xs text-blue-600 hover:underline hover:underline-offset-2"
-					href="https://github.com/jamesfeeder/jamesfeeder.github.io">Source Code</a
-				>
-			</footer>
-		</div>
+	<div in:fade={{ duration: 240, delay: 240}} out:fade={{ duration: 120}}>
+	<div
+		in:fly={{
+			x: 88 * 0.5 * transitionDirection,
+			duration: 240 * Math.abs(transitionDirection),
+			delay: 240 * Math.abs(transitionDirection)
+		}}
+		out:fly={{ x: 88 * 0.5 * -transitionDirection, duration: transitionDirection === 0 ? 120: 240 }}
+		class={data.pathname !== '/' ? 'pt-14' : ''}
+	>
+		<slot />
+		<footer class="mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6">
+			<p class="flex items-center justify-center text-sm">
+				Developed with <img class=" h-5 w-5 px-1" src={svelteIcon} alt="svelte logo" /> and ❤️
+			</p>
+			<a
+				class="text-xs text-blue-600 hover:underline hover:underline-offset-2"
+				href="https://github.com/jamesfeeder/jamesfeeder.github.io">Source Code</a
+			>
+		</footer>
+	</div>
 	</div>
 {/key}
 

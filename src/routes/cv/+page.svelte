@@ -51,9 +51,24 @@
 				'OpenCV',
 				'TkInter',
 				'React',
-				'Cloud Firestore',
+				'Firebase Cloud Firestore',
 				'Firebase Storage',
 				'Google Docs API'
+			]
+		},
+		{
+			title: 'Web Developer',
+			projectName: 'SP HR SYSTEM',
+			client: 'Southern Plastic',
+			time: '2023',
+			description: 'Develop web application for calculate man-hours and wages from timestamp data.',
+			techs: [
+				'React',
+				'Mantine',
+				'Firebase Authentication',
+				'Firebase Cloud Functions',
+				'Firebase Cloud Firestore',
+				'Firebase Storage'
 			]
 		},
 		{
