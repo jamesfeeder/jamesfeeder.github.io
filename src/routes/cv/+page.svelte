@@ -154,6 +154,10 @@
 	];
 </script>
 
+<svelte:head>
+	<title>jamesfeeder's cv</title>
+</svelte:head>
+
 <main class="mx-auto max-w-4xl p-4 pt-20 sm:p-6 sm:pt-20">
 	<header class="flex flex-col justify-between gap-4 sm:flex-row">
 		<div>
