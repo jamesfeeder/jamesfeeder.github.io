@@ -67,7 +67,7 @@
 {/if}
 
 {#key data.pathname}
-	<div in:fade={{ duration: 240, delay: 240}} out:fade={{ duration: 120}}>
+	<div in:fade={{ duration: 120, delay: 120}} out:fade={{ duration: 120}}>
 	<div
 		in:fly={{
 			x: 88 * 0.5 * transitionDirection,
@@ -78,7 +78,7 @@
 		class={data.pathname !== '/' ? 'pt-14' : ''}
 	>
 		<slot />
-		<footer class="mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6">
+		<footer class="mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6 z-50 relative">
 			<p class="flex items-center justify-center text-sm">
 				Developed with <img class=" h-5 w-5 px-1" src={svelteIcon} alt="svelte logo" /> and ❤️
 			</p>
