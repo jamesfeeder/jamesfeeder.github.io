@@ -7,7 +7,7 @@
 	import '../app.css';
 
 	import svelteIcon from '../assets/svelte.svg';
-	import { ArrowLeft, ReadCvLogo, Trophy } from 'phosphor-svelte';
+	import { ArrowLeft, At, Car, CaretLeft, ReadCvLogo, Trophy } from 'phosphor-svelte';
 	import { beforeNavigate } from '$app/navigation';
 	import { targetUrlStore } from '$lib/stores';
 
@@ -50,44 +50,49 @@
 
 {#if data.pathname !== '/'}
 	<nav
-		transition:fly={{ y: -60, delay: 240, opacity: 1 }}
-		class="fixed left-0 top-0 z-50 border-b border-slate-600 border-opacity-20 bg-slate-50 shadow-sm"
+		transition:fly={{ y: -60, delay: 240, opacity: 1, duration: 500 }}
+		class="fixed left-0 top-0 z-50 border-b border-slate-200 border-opacity-20 bg-slate-50 shadow-2xl shadow-slate-200"
 		style={`width: calc(100vw - ${scrollbarWidth}px)`}
 	>
 		<div
-			class="mx-auto flex h-14 max-w-4xl items-center justify-between gap-4 pl-1 pr-3 sm:pl-4 sm:pr-6"
+			class="mx-auto flex h-14 max-w-4xl items-center justify-between gap-4 pl-1 pr-1 sm:pl-4 sm:pr-4"
 		>
-			<div transition:fade={{ duration: 120 }}><NavItem link="/"><ArrowLeft /></NavItem></div>
-			<!-- <div class="flex items-center gap-0">
-				<NavItemTab link="/achievement"><Trophy /></NavItemTab>
-				<NavItemTab link="/cv"><ReadCvLogo /></NavItemTab>
-			</div> -->
+			<div transition:fade={{ duration: 120 }}><NavItem link="/"><CaretLeft /></NavItem></div>
+			<div class="flex items-center gap-0">
+				<!-- <NavItemTab link="/achievement"><Trophy /></NavItemTab> -->
+				<NavItemTab link="/cv"><At /></NavItemTab>
+			</div>
 		</div>
 	</nav>
 {/if}
 
 {#key data.pathname}
-	<div in:fade={{ duration: 120, delay: 120}} out:fade={{ duration: 120}}>
-	<div
-		in:fly={{
-			x: 88 * 0.5 * transitionDirection,
-			duration: 240 * Math.abs(transitionDirection),
-			delay: 240 * Math.abs(transitionDirection)
-		}}
-		out:fly={{ x: 88 * 0.5 * -transitionDirection, duration: transitionDirection === 0 ? 120: 240 }}
-		class={data.pathname !== '/' ? 'pt-14' : ''}
-	>
-		<slot />
-		<footer class="mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6 z-50 relative">
-			<p class="flex items-center justify-center text-sm">
-				Developed with <img class=" h-5 w-5 px-1" src={svelteIcon} alt="svelte logo" /> and ❤️
-			</p>
-			<a
-				class="text-xs text-blue-600 hover:underline hover:underline-offset-2"
-				href="https://github.com/jamesfeeder/jamesfeeder.github.io">Source Code</a
+	<div in:fade={{ duration: 120, delay: 120 }} out:fade={{ duration: 120 }}>
+		<div
+			in:fly={{
+				x: 88 * 0.5 * transitionDirection,
+				duration: 240 * Math.abs(transitionDirection),
+				delay: 240 * Math.abs(transitionDirection)
+			}}
+			out:fly={{
+				x: 88 * 0.5 * -transitionDirection,
+				duration: transitionDirection === 0 ? 120 : 240
+			}}
+			class={data.pathname !== '/' ? 'pt-14' : ''}
+		>
+			<slot />
+			<footer
+				class="relative z-50 mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6"
 			>
-		</footer>
-	</div>
+				<p class="flex items-center justify-center text-sm">
+					Developed with <img class=" h-5 w-5 px-1" src={svelteIcon} alt="svelte logo" /> and ❤️
+				</p>
+				<a
+					class="text-xs text-blue-600 hover:underline hover:underline-offset-2"
+					href="https://github.com/jamesfeeder/jamesfeeder.github.io">Source Code</a
+				>
+			</footer>
+		</div>
 	</div>
 {/key}
 

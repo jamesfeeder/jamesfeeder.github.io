@@ -58,6 +58,34 @@
 		},
 		{
 			title: 'Web Developer',
+			projectName: 'Agri Way',
+			client: 'Yala Warehouse (1442) Ltd.',
+			time: '2024',
+			description: 'Web application for manage and track agricultural products.',
+			techs: [
+				'React',
+				'Mantine',
+				'Firebase Authentication',
+				'Firebase Cloud Functions',
+				'Firebase Cloud Firestore',
+				'Firebase Storage'
+			]
+		},
+		{
+			title: 'Web Developer',
+			projectName: 'GSB Wisdom Gamification',
+			client: 'M & SULLIVAN',
+			time: '2024',
+			description:
+				'Quiz game for GSB Wisdom LMS for train employee.',
+			works: [
+				"<a href='https://gsb-wisdom-identity.pages.dev' target='_blank' class='text-blue-600 hover:underline'>GSB Wisdom: Identification Quiz</a>",
+				"<a href='https://gsb-wisdom-signature.pages.dev' target='_blank' class='text-blue-600 hover:underline'>GSB Wisdom: Signature Quiz</a>",
+			],
+			techs: ['React', 'React Spring', 'Howler.js', 'SCORM']
+		},
+		{
+			title: 'Web Developer',
 			projectName: 'SP HR SYSTEM',
 			client: 'Southern Plastic',
 			time: '2023',
@@ -177,7 +205,7 @@
 
 	<section id="skills" class="flex flex-wrap gap-2 pt-6 sm:w-3/4">
 		{#each skills as skill}
-			<p class="rounded-md bg-blue-600 px-2 py-1 text-sm font-semibold text-white">{skill}</p>
+			<p class="rounded-3xl bg-blue-600 px-3 py-1 text-sm font-semibold text-white">{skill}</p>
 		{/each}
 	</section>
 
@@ -191,13 +219,13 @@
 			<div class="flex items-center gap-2 py-1">
 				<p class="text-lg font-semibold text-slate-800">{@html exp.client}</p>
 				<p
-					class="flex-none rounded-md bg-blue-600 px-1 py-0.5 text-center text-sm font-semibold text-white"
+					class="flex-none rounded-3xl bg-blue-600 px-2 py-1 text-center text-xs font-semibold text-white"
 				>
 					{exp.time}
 				</p>
 				{#if exp.remark}
 					<p
-						class="line-clamp-1 flex-none rounded-md bg-blue-600 px-1 py-0.5 text-center text-sm font-semibold text-white"
+						class="line-clamp-1 flex-none rounded-3xl bg-blue-600 px-2 py-1 text-center text-xs font-semibold text-white"
 					>
 						{@html exp.remark}
 					</p>
@@ -207,7 +235,7 @@
 			{#if exp.works}
 				<div class="mb-2">
 					<p class="flex items-center gap-1 pb-1 font-semibold">Works / Position</p>
-					<ul role="list" class="list-inside list-disc marker:mr-2">
+					<ul role="list" class="list-inside list-disc">
 						{#each exp.works as work}
 							<li>{@html work}</li>
 						{/each}
@@ -218,7 +246,7 @@
 				<div class="flex flex-wrap gap-2 pb-2">
 					{#each exp.techs as tech}
 						<p
-							class="rounded-md border border-blue-200 bg-blue-100 px-1 py-0.5 text-sm font-semibold text-slate-600"
+							class="rounded-3xl border border-blue-200 bg-blue-100 px-2 py-1 text-xs font-semibold text-slate-600"
 						>
 							{tech}
 						</p>
@@ -237,7 +265,7 @@
 			<div class="flex items-center gap-2">
 				<p class="text-xl text-slate-600">{@html exp.program}</p>
 				<p
-					class=" flex-none rounded-md bg-blue-600 px-1 py-0.5 text-center text-sm font-semibold text-white"
+					class=" flex-none rounded-3xl bg-blue-600 px-2 py-1 text-center text-xs font-semibold text-white"
 				>
 					{exp.time}
 				</p>
