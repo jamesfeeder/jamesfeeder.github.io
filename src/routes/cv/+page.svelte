@@ -1,4 +1,4 @@
-<script  lang="ts">
+<script lang="ts">
 	import Anchor from '$lib/Anchor.svelte';
 	import { PaperPlaneTilt } from 'phosphor-svelte';
 
@@ -41,7 +41,7 @@
 			time: '2020 - Present',
 			description: "Develop and Maintain Banno's Diary Line Sticker in-house tools and website.",
 			works: [
-				"<a href='https://sticker.bannodiary.com' target='_blank' class='text-blue-600 hover:underline'>Banno's Diary Web Application</a>",
+				"<a href='https://sticker.bannodiary.com' target='_blank' class='hover:underline'>Banno's Diary Web Application</a>",
 				"Banno's Diary Web Content Management System",
 				"Banno's Diary Sticker Renderer"
 			],
@@ -76,11 +76,10 @@
 			projectName: 'GSB Wisdom Gamification',
 			client: 'M & SULLIVAN',
 			time: '2024',
-			description:
-				'Quiz game for GSB Wisdom LMS for train employee.',
+			description: 'Quiz game for GSB Wisdom LMS for train employee.',
 			works: [
-				"<a href='https://gsb-wisdom-identity.pages.dev' target='_blank' class='text-blue-600 hover:underline'>GSB Wisdom: Identification Quiz</a>",
-				"<a href='https://gsb-wisdom-signature.pages.dev' target='_blank' class='text-blue-600 hover:underline'>GSB Wisdom: Signature Quiz</a>",
+				"<a href='https://gsb-wisdom-identity.pages.dev' target='_blank' class='hover:underline'>GSB Wisdom: Identification Quiz</a>",
+				"<a href='https://gsb-wisdom-signature.pages.dev' target='_blank' class='hover:underline'>GSB Wisdom: Signature Quiz</a>"
 			],
 			techs: ['React', 'React Spring', 'Howler.js', 'SCORM']
 		},
@@ -189,43 +188,45 @@
 <main class="mx-auto max-w-4xl p-4 pt-20 sm:p-6 sm:pt-20">
 	<header class="flex flex-col justify-between gap-4 sm:flex-row">
 		<div>
-			<h1 class="text-3xl font-semibold text-slate-800">Jetsadakorn Maliwan</h1>
+			<h1 class="text-3xl font-semibold">Jetsadakorn Maliwan</h1>
 			<div class="flex flex-wrap items-center gap-1.5 pt-4">
-				<p class="font-light text-slate-500">Software Developer /</p>
-				<p class="font-light text-slate-500">Front-End Web Developer</p>
+				<p class="font-light text-slate-600 dark:text-slate-400">Software Developer /</p>
+				<p class="font-light text-slate-600 dark:text-slate-400">Front-End Web Developer</p>
 			</div>
 		</div>
 		<div class="flex flex-col items-start sm:items-end">
-			<Anchor label="jetsadakorn.maliwan@gmail.com" link="mailto:jetsadakorn.maliwan@gmail.com"
-				><PaperPlaneTilt weight="bold" /></Anchor
+			<a href="mailto:jetsadakorn.maliwan@gmail.com" class="hover:underline"
+				>jetsadakorn.maliwan@gmail.com</a
 			>
-			<Anchor label="github.com/jamesfeeder" link="https://github.com/jamesfeeder" openNewTab />
+			<a href="http://github.com/jamesfeeder" class="hover:underline" target="_blank"
+				>github.com/jamesfeeder</a
+			>
 		</div>
 	</header>
 
 	<section id="skills" class="flex flex-wrap gap-2 pt-6 sm:w-3/4">
 		{#each skills as skill}
-			<p class="rounded-3xl bg-blue-600 px-3 py-1 text-sm font-semibold text-white">{skill}</p>
+			<p class="rounded-3xl bg-slate-600 px-3 py-1 text-sm font-semibold text-white">{skill}</p>
 		{/each}
 	</section>
 
 	<section id="exp" class="pt-4">
-		<h2 class="py-4 text-2xl font-semibold text-slate-800">Experience</h2>
+		<h2 class="py-4 text-2xl font-semibold">Experience</h2>
 		{#each workExp as exp, index}
-			<h3 class="text-xl text-slate-600">{@html exp.title}</h3>
+			<h3 class="text-xl text-slate-600 dark:text-slate-400">{@html exp.title}</h3>
 			{#if exp.projectName}
-				<p class="text-base text-slate-600">Project: {exp.projectName}</p>
+				<p class="text-base text-slate-600 dark:text-slate-400">Project: {exp.projectName}</p>
 			{/if}
 			<div class="flex items-center gap-2 py-1">
-				<p class="text-lg font-semibold text-slate-800">{@html exp.client}</p>
+				<p class="text-lg font-semibold">{@html exp.client}</p>
 				<p
-					class="flex-none rounded-3xl bg-blue-600 px-2 py-1 text-center text-xs font-semibold text-white"
+					class="flex-none rounded-3xl bg-slate-600 px-2 py-1 text-center text-xs font-semibold text-white"
 				>
 					{exp.time}
 				</p>
 				{#if exp.remark}
 					<p
-						class="line-clamp-1 flex-none rounded-3xl bg-blue-600 px-2 py-1 text-center text-xs font-semibold text-white"
+						class="line-clamp-1 flex-none rounded-3xl bg-slate-600 px-2 py-1 text-center text-xs font-semibold text-white"
 					>
 						{@html exp.remark}
 					</p>
@@ -234,7 +235,7 @@
 			<p class="p1-1 pb-2">{@html exp.description}</p>
 			{#if exp.works}
 				<div class="mb-2">
-					<p class="flex items-center gap-1 pb-1 font-semibold">Works / Position</p>
+					<p class="flex items-center gap-1 pb-1 font-semibold">Works</p>
 					<ul role="list" class="list-inside list-disc">
 						{#each exp.works as work}
 							<li>{@html work}</li>
@@ -246,7 +247,7 @@
 				<div class="flex flex-wrap gap-2 pb-2">
 					{#each exp.techs as tech}
 						<p
-							class="rounded-3xl border border-blue-200 bg-blue-100 px-2 py-1 text-xs font-semibold text-slate-600"
+							class="rounded-3xl border border-slate-200 bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-700 dark:text-slate-400"
 						>
 							{tech}
 						</p>
@@ -260,17 +261,17 @@
 	</section>
 
 	<section id="edu" class="pt-4">
-		<h2 class="py-4 text-2xl font-semibold text-slate-800">Education</h2>
+		<h2 class="py-4 text-2xl font-semibold">Education</h2>
 		{#each eduExp as exp, index}
 			<div class="flex items-center gap-2">
-				<p class="text-xl text-slate-600">{@html exp.program}</p>
+				<p class="text-xl text-slate-600 dark:text-slate-400">{@html exp.program}</p>
 				<p
-					class=" flex-none rounded-3xl bg-blue-600 px-2 py-1 text-center text-xs font-semibold text-white"
+					class=" flex-none rounded-3xl bg-slate-600 px-2 py-1 text-center text-xs font-semibold text-white"
 				>
 					{exp.time}
 				</p>
 			</div>
-			<h3 class="pt-1 text-lg font-semibold text-slate-800">{@html exp.school}</h3>
+			<h3 class="pt-1 text-lg font-semibold">{@html exp.school}</h3>
 			{#if eduExp.length - 1 > index}
 				<div class="h-4" />
 			{/if}
