@@ -1,4 +1,4 @@
-<script>
+<script  lang="ts">
 	import Anchor from '$lib/Anchor.svelte';
 	import { PaperPlaneTilt } from 'phosphor-svelte';
 

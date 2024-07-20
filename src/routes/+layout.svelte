@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly, blur } from 'svelte/transition';
 	import NavItem from '../lib/NavItem.svelte';
