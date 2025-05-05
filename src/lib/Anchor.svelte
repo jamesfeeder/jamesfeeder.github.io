@@ -1,14 +1,10 @@
-<script>
+<script lang="ts">
 	import { ArrowSquareOut, ArrowRight } from 'phosphor-svelte';
 	import { targetUrlStore } from './stores';
 
-	/**  @type {string} Anchor Label*/
 	export let label;
-	/**  @type {string} Link to Open*/
 	export let link;
-	/**  @type {boolean} Open in new tab?*/
 	export let openNewTab = false;
-	/**  @type {boolean} Disable icon*/
 	export let disableIcon = false;
 </script>
 
