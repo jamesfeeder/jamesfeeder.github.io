@@ -255,7 +255,7 @@
 				</div>
 			{/if}
 			{#if workExp.length - 1 > index}
-				<div class="h-4" />
+				<div class="h-4"></div>
 			{/if}
 		{/each}
 	</section>
@@ -273,7 +273,7 @@
 			</div>
 			<h3 class="pt-1 text-lg font-semibold">{@html exp.school}</h3>
 			{#if eduExp.length - 1 > index}
-				<div class="h-4" />
+				<div class="h-4"></div>
 			{/if}
 		{/each}
 	</section>

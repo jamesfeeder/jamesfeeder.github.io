@@ -11,9 +11,9 @@
 	import { beforeNavigate } from '$app/navigation';
 	import { targetUrlStore } from '$lib/stores';
 
-	export let data;
+	let { data, children } = $props();
 
-	let scrollbarWidth = 0;
+	let scrollbarWidth = $state(0);
 
 	onMount(() => {
 		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -24,7 +24,7 @@
 	const pages = ['/', '/achievement', '/cv'];
 
 	let targetUrl = '';
-	let transitionDirection = 0;
+	let transitionDirection = $state(0);
 
 	targetUrlStore.subscribe((url) => (targetUrl = url));
 
@@ -75,7 +75,7 @@
 			}}
 			class={data.pathname !== '/' ? 'pt-14' : ''}
 		>
-			<slot />
+			{@render children?.()}
 			<footer
 				class="relative z-50 mx-auto flex h-36 w-full flex-col items-center justify-center gap-2 pt-6"
 			>
